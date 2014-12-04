@@ -4,6 +4,8 @@ Michael Neary & Jeremy Neal
 Traveling Salesman Problem
 '''
 import time
+from graph_generator import GraphGenerator
+import random
 
 '''
 undirected graph is implemented as a python dictionary of dictionaries
@@ -21,6 +23,8 @@ graph = {
     'G': {'D': 135, 'E': 230, 'F': 85, 'H': 67},
     'H': {'D': 64, 'G': 67}
 }
+
+graph = GraphGenerator(10).generateGraph()
 
 # recursive brute force solution to the TSP
 
@@ -65,7 +69,10 @@ def find_all_paths(graph, currentNode, distanceSoFar, pathSoFar):
 
 startTime = time.time()
 bruteForcePaths = []
-find_all_paths(graph, 'B', 0, [])
+startNode = random.choice(list(graph.iterkeys()))
+print "Starting from node", startNode
+find_all_paths(graph, startNode, 0, [])
+# find_all_paths(graph, 'B', 0, [])
 endTime = time.time()
 print "Done in:", endTime - startTime, "seconds."
 bruteForcePaths.sort()
