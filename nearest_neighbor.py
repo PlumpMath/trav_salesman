@@ -1,5 +1,5 @@
 '''
-CMSC Project 3
+CMSC 471 Project 3
 Michael Neary & Jeremy Neal
 Traveling Salesman Problem
 '''
@@ -37,15 +37,15 @@ def find_all_paths(graph, currentNode, distanceSoFar, pathSoFar):
     if pathSoFar[0] in graph[pathSoFar[-1]] and len(pathSoFar) == len(graph):
         pathSoFar.append(pathSoFar[0])
 
-    # add distance from last node to start node, and add start node
-    # to end of path
-    distanceSoFar += graph[pathSoFar[-2]][pathSoFar[0]]
+        # add distance from last node to start node, and add start node
+        # to end of path
+        distanceSoFar += graph[pathSoFar[-2]][pathSoFar[0]]
 
-    global bruteForcePaths
+        global bruteForcePaths
 
-    # bruteForcePaths.append((pathSoFar, distanceSoFar))
-    bruteForcePaths.append((distanceSoFar, pathSoFar))
-    return
+        # bruteForcePaths.append((pathSoFar, distanceSoFar))
+        bruteForcePaths.append((distanceSoFar, pathSoFar))
+        return
 
     # for each node left in the graph, find another path
     # in other words, find all permutations of paths
