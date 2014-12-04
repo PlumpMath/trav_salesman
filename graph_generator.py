@@ -45,6 +45,8 @@ class GraphGenerator:
                 self.graph[source][dest] = distance
                 self.graph[dest][source] = distance
 
+        return self.graph
+
 
 def main():
     graph = GraphGenerator(10)
