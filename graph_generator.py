@@ -1,5 +1,6 @@
 import math
 import random
+import sys
 from faker import Factory
 
 
@@ -47,7 +48,16 @@ class GraphGenerator:
 
 
 def main():
-    graph = GraphGenerator(10)
+
+    #default graph size is 10
+    size = 10
+
+    #see if size was given on command line
+    if len(sys.argv) >= 2:
+        size = int(sys.argv[1])
+
+    #construct graph
+    graph = GraphGenerator(size)
     graph.generateGraph()
     print graph
 
