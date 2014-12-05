@@ -1,5 +1,4 @@
 argparse==1.2.1
-fake-factory==0.4.2
 flake8==2.2.5
 mccabe==0.2.1
 pep8==1.5.7

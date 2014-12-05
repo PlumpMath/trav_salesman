@@ -1,7 +1,6 @@
 import math
 import random
 import sys
-from faker import Factory
 
 
 class GraphGenerator:
@@ -28,12 +27,15 @@ class GraphGenerator:
         The number of edges is the number of cities raised to to 3/2.
         Note: this generates an undirected graph.
         '''
-        faker = Factory.create()
 
         for i in range(self.num):
             # Generate random city name.
-            randomCityName = faker.city()
-            self.graph[randomCityName] = {}
+            name_len = (i / 26) + 1
+            name = ""
+            for j in range(name_len):
+                name += chr(65 + i % 26)
+                i -= 26
+            self.graph[name] = {}
 
         # Pick a random city, add an edge of random length to another city.
         for i in range(int(math.ceil(self.num ** 1.5))):
@@ -51,14 +53,14 @@ class GraphGenerator:
 
 def main():
 
-    #default graph size is 10
+    # default graph size is 10
     size = 10
 
-    #see if size was given on command line
+    # see if size was given on command line
     if len(sys.argv) >= 2:
         size = int(sys.argv[1])
 
-    #construct graph
+    # construct graph
     graph = GraphGenerator(size)
     graph.generateGraph()
     print graph
