@@ -2,6 +2,7 @@
 Greedy Algorithm to solve the TSP
 '''
 
+import time
 import graph_generator
 
 def greedy_find_path(graph, start):
@@ -44,7 +45,6 @@ def closest(graph, node, path):
 
 def main():
 
-
 	graph = {
             'A': {'C': 82, 'B': 85, 'E': 73, 'D': 18, 'G': 67, 'F': 15, 'I': 65, 'H': 62, 'J': 20},
             'C': {'A': 82, 'B': 80, 'E': 97, 'D': 16, 'G': 66, 'F': 20, 'I': 96, 'H': 17, 'J': 58},
@@ -60,7 +60,10 @@ def main():
 
 	#graph = graph_generator.GraphGenerator()
 	#graph.generateGraph()
-	path,cost = greedy_find_path(graph,'J')
+	start = time.time()
+	path,cost = greedy_find_path(graph,'I')
+	end = time.time()
+	print "Done in:",end-start,"seconds."
 	print "The path taken:", path
 	print "It cost:",cost
 
