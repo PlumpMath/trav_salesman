@@ -28,7 +28,7 @@ class GraphGenerator:
         Note: this generates an undirected graph.
         '''
 
-        for i in range(self.num):
+        for i in xrange(self.num):
             # Generate random city name.
             name_len = (i / 26) + 1
             name = ""
