@@ -24,6 +24,7 @@ no self-edges allowed
 #     'H': {'D': 64, 'G': 67}
 # }
 
+'''
 graph = {
     u'East Ricki': {u'Kossbury': 55, u'West Laverneland': 26},
     u'South Jaylene': {u'Lonnaborough': 93, u'Lake Brody': 96, u'South Katherin': 44},
@@ -36,6 +37,20 @@ graph = {
     u'Lake Brody': {u'Lonnaborough': 74, u'West Laverneland': 76, u'South Jaylene': 96, u'South Katherin': 61},
     u'Rociomouth': {u'Kossbury': 76, u'Lonnaborough': 74, u'West Deenahaven': 47}
 }
+'''
+
+graph = {
+            'A': {'C': 82, 'B': 85, 'E': 73, 'D': 18, 'G': 67, 'F': 15, 'I': 65, 'H': 62, 'J': 20},
+            'C': {'A': 82, 'B': 80, 'E': 97, 'D': 16, 'G': 66, 'F': 20, 'I': 96, 'H': 17, 'J': 58},
+            'B': {'A': 85, 'C': 80, 'E': 86, 'D': 56, 'G': 70, 'F': 49, 'I': 89, 'H': 99, 'J': 81},
+            'E': {'A': 73, 'C': 97, 'B': 86, 'D': 16, 'G': 33, 'F': 86, 'I': 60, 'H': 96, 'J': 62},
+            'D': {'A': 18, 'C': 16, 'B': 56, 'E': 16, 'G': 47, 'F': 15, 'I': 51, 'H': 14, 'J': 42},
+            'G': {'A': 67, 'C': 66, 'B': 70, 'E': 33, 'D': 47, 'F': 45, 'I': 95, 'H': 54, 'J': 17},
+            'F': {'A': 15, 'C': 20, 'B': 49, 'E': 86, 'D': 15, 'G': 45, 'I': 61, 'H': 77, 'J': 65},
+            'I': {'A': 65, 'C': 96, 'B': 89, 'E': 60, 'D': 51, 'G': 95, 'F': 61, 'H': 16, 'J': 83},
+            'H': {'A': 62, 'C': 17, 'B': 99, 'E': 96, 'D': 14, 'G': 54, 'F': 77, 'I': 16, 'J': 43},
+            'J': {'A': 20, 'C': 58, 'B': 81, 'E': 62, 'D': 42, 'G': 17, 'F': 65, 'I': 83, 'H': 43}
+        }
 
 # recursive brute force solution to the TSP
 
@@ -88,5 +103,8 @@ find_all_paths(graph, startNode, 0, [])
 endTime = time.time()
 print "Done in:", endTime - startTime, "seconds."
 bruteForcePaths.sort()
-for path in bruteForcePaths:
-    print path
+print "path:",bruteForcePaths[0][1]
+print "cost:",bruteForcePaths[0][0]
+
+#for path in bruteForcePaths:
+#    print path
