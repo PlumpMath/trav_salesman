@@ -11,7 +11,7 @@ class GraphGenerator:
     edges.
     '''
 
-    def __init__(self, num):
+    def __init__(self, num=10):
         self.num = num
         self.graph = {}
 
@@ -53,15 +53,15 @@ class GraphGenerator:
 
 def main():
 
-    # default graph size is 10
-    size = 10
-
     # see if size was given on command line
+    # and initialize graph object
     if len(sys.argv) >= 2:
         size = int(sys.argv[1])
+        graph = GraphGenerator(size)
+    else:
+        graph = GraphGenerator()
 
-    # construct graph
-    graph = GraphGenerator(size)
+    #generate graph
     graph.generateGraph()
     print graph
 
