@@ -38,15 +38,22 @@ class GraphGenerator:
             self.graph[name] = {}
 
         # Pick a random city, add an edge of random length to another city.
-        for i in range(int(math.ceil(self.num ** 1.5))):
-            source = random.choice(list(self.graph.iterkeys()))
-            dest = random.choice(list(self.graph.iterkeys()))
-            if source == dest:
-                pass
-            else:
-                distance = random.randrange(10, 100)
-                self.graph[source][dest] = distance
-                self.graph[dest][source] = distance
+        #for i in range(int(math.ceil(self.num ** 1.5))):
+        keys = list(self.graph.iterkeys())
+
+        for j in xrange(self.num):
+
+            source = keys[j]
+
+            for i in xrange(self.num):
+
+                dest = keys[i]
+
+                if source != dest:
+
+                    distance = random.randrange(10, 100)
+                    self.graph[source][dest] = distance
+                    self.graph[dest][source] = distance
 
         return self.graph
 
