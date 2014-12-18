@@ -30,3 +30,15 @@ Here are some results:
     	Done in: 4.91142272949e-05 seconds.
 		path: ['I', 'H', 'D', 'F', 'A', 'J', 'G', 'E', 'B', 'C', 'I']
 		cost: 392
+
+    Simulated Annealing (start node 'A'):
+        
+        Done in: 0.502821922302 seconds
+        path: ['A', 'I', 'B', 'C', 'G', 'D', 'H', 'J', 'E', 'F']]
+        cost: 567 (Something is wrong with this calculation don't have time to
+                   inspect.)
+
+Simulated annealing should provide more optimal results though will be much
+slower than a greedy search. The main advantage is that greedy will pick local
+optima and stick with it. A properly implemented version of simulated annealing
+will detect these and move past them.
